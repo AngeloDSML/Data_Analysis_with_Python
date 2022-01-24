@@ -1,0 +1,24 @@
+import numpy as np
+
+def calculate(list):
+  if len(list) < 9:
+    raise ValueError('List must contain nine numbers.')
+  
+  matrx = np.array(list).reshape(3, 3)
+
+  matrx_mean = [np.mean(matrx, axis=0).tolist(), np.mean(matrx, axis=1).tolist(), np.mean(matrx.flat)]
+  matrx_var = [np.var(matrx, axis=0).tolist(), np.var(matrx, axis=1).tolist(), np.var(matrx.flat)]
+  matrx_std = [np.std(matrx, axis=0).tolist(), np.std(matrx, axis=1).tolist(), np.std(matrx.flat)]
+  matrx_max = [np.max(matrx, axis=0).tolist(), np.max(matrx, axis=1).tolist(), np.max(matrx.flat)]
+  matrx_min = [np.min(matrx, axis=0).tolist(), np.min(matrx, axis=1).tolist(), np.min(matrx.flat)]
+  matrx_sum = [np.sum(matrx, axis=0).tolist(), np.sum(matrx, axis=1).tolist(), np.sum(matrx.flat)]
+
+  calculations = {'mean': matrx_mean,
+  'variance': matrx_var,
+  'standard deviation': matrx_std,
+  'max': matrx_max,
+  'min': matrx_min,
+  'sum': matrx_sum
+  }
+
+  return calculations
